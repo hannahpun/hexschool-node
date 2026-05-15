@@ -14,15 +14,17 @@ A practice Express.js (v5) Todo API written in TypeScript, with Zod request vali
 
 ```
 src/
-├── app.ts                  # App entry point
+├── app.ts                  # App entry point + central error handler
 ├── routes/
 │   └── todoRoutes.ts       # /todos route definitions
 ├── controllers/
 │   └── todoController.ts
 ├── middlewares/
-│   └── validate.ts         # Zod-based body validator
-└── schemas/
-    └── todoSchema.ts       # Zod request schemas
+│   └── validate.ts         # Zod-based body / params validators
+├── schemas/
+│   └── todoSchema.ts       # Zod request schemas
+└── utils/
+    └── HttpError.ts        # Error class carrying an HTTP status code
 ```
 
 ## Getting Started
@@ -65,7 +67,8 @@ Base path: `/todos`
 | `GET` | `/todos` | List all todos | — |
 | `POST` | `/todos` | Create a todo | `{ "title": string }` |
 | `PATCH` | `/todos/:id` | Update a todo's title | `{ "title": string }` |
-| `DELETE` | `/todos/:id` | Delete a todo | — |
+| `DELETE` | `/todos` | Delete **all** todos | — |
+| `DELETE` | `/todos/:id` | Delete a single todo by id | — |
 
 ### Response format
 
@@ -82,6 +85,12 @@ Validation error (`400`):
   "status": "error",
   "errors": [{ "path": ["title"], "message": "標題不可為空" }]
 }
+```
+
+Todo not found (`404`) — returned by `PATCH /todos/:id` and `DELETE /todos/:id` when the id doesn't match any existing todo:
+
+```json
+{ "status": "error", "message": "無此 todo 資訊" }
 ```
 
 Unknown route (`404`):
@@ -106,6 +115,17 @@ curl -X POST http://localhost:3000/todos \
 
 # List todos
 curl http://localhost:3000/todos
+
+# Update a todo's title
+curl -X PATCH http://localhost:3000/todos/1 \
+  -H "Content-Type: application/json" \
+  -d '{"title":"Buy more groceries"}'
+
+# Delete a single todo
+curl -X DELETE http://localhost:3000/todos/1
+
+# Delete all todos
+curl -X DELETE http://localhost:3000/todos
 ```
 
 > Note: todos are currently held in memory and reset whenever the server restarts.
