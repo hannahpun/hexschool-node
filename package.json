@@ -1,0 +1,40 @@
+{
+  "type": "module",
+  "scripts": {
+    "start": "docker compose --env-file .env up -d --build",
+    "restart": "docker compose --env-file .env up --force-recreate --build -d",
+    "stop": "docker compose --env-file .env stop",
+    "clean": "docker compose --env-file .env down -v",
+    "dev": "tsx watch src/app.ts",
+    "db:generate": "drizzle-kit generate",
+    "db:push": "drizzle-kit push",
+    "db:migrate": "drizzle-kit migrate",
+    "db:studio": "drizzle-kit studio",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier --write .",
+    "format:check": "prettier --check ."
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "dotenv": "^17.4.2",
+    "drizzle-kit": "^0.18.1",
+    "drizzle-orm": "^0.45.2",
+    "express": "^5.2.1",
+    "pg": "^8.20.0",
+    "typescript": "^6.0.3",
+    "zod": "^4.3.6"
+  },
+  "devDependencies": {
+    "@eslint/js": "^10.0.1",
+    "@types/cors": "^2.8.19",
+    "@types/express": "^5.0.6",
+    "@types/node": "^25.6.0",
+    "eslint": "^10.2.1",
+    "eslint-config-prettier": "^10.1.8",
+    "nodemon": "^3.1.14",
+    "prettier": "^3.8.3",
+    "tsx": "^4.21.0",
+    "typescript-eslint": "^8.59.1"
+  }
+}
