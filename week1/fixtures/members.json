@@ -1,0 +1,6 @@
+[
+  { "id": 1, "name": "小華", "level": "VIP", "credits": 120, "joinDate": "2024-03-15" },
+  { "id": 2, "name": "小美", "level": "normal", "credits": 30, "joinDate": "2024-08-20" },
+  { "id": 3, "name": "阿強", "level": "VIP", "credits": 200, "joinDate": "2023-11-05" },
+  { "id": 4, "name": "小明", "level": "normal", "credits": 0, "joinDate": "2025-01-10" }
+]
