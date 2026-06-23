@@ -145,10 +145,6 @@ function handleUpload(req, res, config) {
     keepExtensions: true,
   });
 
-  // form.on('error', (err) => {
-  //   sendJSON(res, 500, { error: err.message });
-  // });
-
   form.parse(req, (err, fields, files) => {
     if (err) {
       sendJSON(res, 500, { error: err.message });
