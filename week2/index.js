@@ -139,10 +139,6 @@ const sendJSON = (res, statusCode, data) => {
 
 function handleUpload(req, res, config) {
   const form = formidable({ uploadDir: config.uploadDir, maxFileSize: config.maxFileSize, keepExtensions: true });
-  
-  form.on('error', (err) => {
-    sendJSON(res, 500, { error: err.message });
-  });
 
   form.parse(req, (err, fields, files) => {
     if (err) {
