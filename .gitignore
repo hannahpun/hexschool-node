@@ -1,7 +1,9 @@
 # Dependencies
 week*/node_modules/
+node_modules/
 
 # Environment variables
 week*/.env
 week*/.env.local
 week*/.env.*.local
+

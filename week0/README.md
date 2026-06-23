@@ -50,25 +50,25 @@ The server starts on `http://localhost:3000`.
 
 ## Scripts
 
-| Script | Description |
-| --- | --- |
-| `npm run dev` | Start the dev server with `tsx watch` (auto-reload on file changes) |
-| `npm run lint` | Run ESLint over the project |
-| `npm run lint:fix` | Run ESLint with `--fix` |
-| `npm run format` | Format the codebase with Prettier |
-| `npm run format:check` | Check formatting without writing |
+| Script                 | Description                                                         |
+| ---------------------- | ------------------------------------------------------------------- |
+| `npm run dev`          | Start the dev server with `tsx watch` (auto-reload on file changes) |
+| `npm run lint`         | Run ESLint over the project                                         |
+| `npm run lint:fix`     | Run ESLint with `--fix`                                             |
+| `npm run format`       | Format the codebase with Prettier                                   |
+| `npm run format:check` | Check formatting without writing                                    |
 
 ## API
 
 Base path: `/todos`
 
-| Method | Path | Description | Body |
-| --- | --- | --- | --- |
-| `GET` | `/todos` | List all todos | — |
-| `POST` | `/todos` | Create a todo | `{ "title": string }` |
-| `PATCH` | `/todos/:id` | Update a todo's title | `{ "title": string }` |
-| `DELETE` | `/todos` | Delete **all** todos | — |
-| `DELETE` | `/todos/:id` | Delete a single todo by id | — |
+| Method   | Path         | Description                | Body                  |
+| -------- | ------------ | -------------------------- | --------------------- |
+| `GET`    | `/todos`     | List all todos             | —                     |
+| `POST`   | `/todos`     | Create a todo              | `{ "title": string }` |
+| `PATCH`  | `/todos/:id` | Update a todo's title      | `{ "title": string }` |
+| `DELETE` | `/todos`     | Delete **all** todos       | —                     |
+| `DELETE` | `/todos/:id` | Delete a single todo by id | —                     |
 
 ### Response format
 

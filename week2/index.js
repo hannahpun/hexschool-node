@@ -1,6 +1,6 @@
 const http = require('node:http');
 const fs = require('node:fs');
-const { formidable } = require('formidable');  // formidable v3 用 named import
+const { formidable } = require('formidable'); // formidable v3 用 named import
 require('dotenv').config();
 
 // ========== 任務一：讀取上傳設定 ==========
@@ -29,9 +29,10 @@ require('dotenv').config();
 function getUploadConfig() {
   return {
     uploadDir: process.env.UPLOAD_DIR || '/tmp',
+    // maxFileSize: (Number(process.env.MAX_FILE_SIZE_MB) || 5) * 1024 * 1024,
     maxFileSize: (Number(process.env.MAX_FILE_SIZE_MB) || 5) * 1024 * 1024,
     gymName: process.env.GYM_NAME || '未命名健身房',
-  }
+  };
 }
 
 // ========== 任務二：取副檔名 ==========
@@ -81,7 +82,7 @@ function parseFileMetadata(file) {
     filename: file.originalFilename,
     sizeKB: Math.round(file.size / 1024),
     ext: getFileExtension(file.originalFilename),
-  }
+  };
 }
 
 // ========== 任務四：產出 upload log 字串 ==========
@@ -132,17 +133,21 @@ function formatUploadLog(meta, config) {
  */
 
 const sendJSON = (res, statusCode, data) => {
-  if(res.headersSent) return; // 避免重複回應
+  if (res.headersSent) return; // 避免重複回應
   res.writeHead(statusCode, { 'Content-Type': 'application/json' });
   res.end(JSON.stringify(data));
-}
+};
 
 function handleUpload(req, res, config) {
-  const form = formidable({ uploadDir: config.uploadDir, maxFileSize: config.maxFileSize, keepExtensions: true });
-  
-  form.on('error', (err) => {
-    sendJSON(res, 500, { error: err.message });
+  const form = formidable({
+    uploadDir: config.uploadDir,
+    maxFileSize: config.maxFileSize,
+    keepExtensions: true,
   });
+
+  // form.on('error', (err) => {
+  //   sendJSON(res, 500, { error: err.message });
+  // });
 
   form.parse(req, (err, fields, files) => {
     if (err) {
@@ -150,7 +155,7 @@ function handleUpload(req, res, config) {
       return;
     }
 
-    const file = files.file?.[0]; 
+    const file = files.file?.[0];
     if (!file) {
       sendJSON(res, 400, { error: 'No file uploaded' });
       return;
@@ -163,8 +168,7 @@ function handleUpload(req, res, config) {
       ext: meta.ext,
       savedPath: file.filepath,
     });
-    
-  })
+  });
 }
 
 function handleNotFound(req, res) {
@@ -172,12 +176,12 @@ function handleNotFound(req, res) {
 }
 
 function router(req, res, config) {
-    if(req.method === 'POST' && req.url === '/coaches/avatar') {
-      handleUpload(req, res, config);
-      return
-    }
+  if (req.method === 'POST' && req.url === '/coaches/avatar') {
+    handleUpload(req, res, config);
+    return;
+  }
 
-    handleNotFound(req, res);
+  handleNotFound(req, res);
 }
 // ========== 任務六：建立上傳 server ==========
 /**

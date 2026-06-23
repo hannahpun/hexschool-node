@@ -1,4 +1,4 @@
-import fs from "fs/promises";
+import fs from 'fs/promises';
 
 // ========== 任務一：讀取會員清單 ==========
 /**
@@ -13,11 +13,11 @@ import fs from "fs/promises";
  */
 async function readMembers(filePath) {
   try {
-    const data = await fs.readFile(filePath, "utf-8");
+    const data = await fs.readFile(filePath, 'utf-8');
     return JSON.parse(data);
   } catch (error) {
-    if (error.code === "ENOENT") {
-      console.error("檔案不存在:", filePath);
+    if (error.code === 'ENOENT') {
+      console.error('檔案不存在:', filePath);
       return [];
     }
     throw error;
@@ -38,7 +38,7 @@ async function readMembers(filePath) {
  *   ]); // [{ name: '小華', level: 'VIP' }]
  */
 function filterVIP(members) {
-  return members.filter((member) => member.level === "VIP");
+  return members.filter((member) => member.level === 'VIP');
 }
 
 // ========== 任務三：計算會員剩餘點數總和 ==========
@@ -75,8 +75,8 @@ function sumCredits(members) {
  */
 function getGymConfig() {
   return {
-    gymName: process.env.GYM_NAME || "未命名健身房",
-    adminName: process.env.ADMIN_NAME || "尚未指派",
+    gymName: process.env.GYM_NAME || '未命名健身房',
+    adminName: process.env.ADMIN_NAME || '尚未指派',
     defaultMembersPath: process.env.DEFAULT_MEMBERS_PATH,
   };
 }
@@ -106,10 +106,4 @@ async function getVIPSummary(filePath) {
   };
 }
 
-export {
-  readMembers,
-  filterVIP,
-  sumCredits,
-  getGymConfig,
-  getVIPSummary,
-};
+export { readMembers, filterVIP, sumCredits, getGymConfig, getVIPSummary };

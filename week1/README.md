@@ -62,30 +62,30 @@ npm test
 
 ### 【任務一：讀取會員清單】
 
-* 函式：`readMembers(filePath)`
-* 用 `fs/promises` 讀取指定路徑的 JSON 檔案
+- 函式：`readMembers(filePath)`
+- 用 `fs/promises` 讀取指定路徑的 JSON 檔案
 
 ### 【任務二：篩選 VIP 會員】
 
-* 函式：`filterVIP(members)`
-* 透過陣列方法篩選，回傳 `level === 'VIP'` 的會員
-* 注意：不可修改原陣列
+- 函式：`filterVIP(members)`
+- 透過陣列方法篩選，回傳 `level === 'VIP'` 的會員
+- 注意：不可修改原陣列
 
 ### 【任務三：計算點數總和】
 
-* 函式：`sumCredits(members)`
-* 加總陣列中所有人的 `credits` 欄位
-* 空陣列回傳 `0`
+- 函式：`sumCredits(members)`
+- 加總陣列中所有人的 `credits` 欄位
+- 空陣列回傳 `0`
 
 ### 【任務四：讀取環境變數】
 
-* 函式：`getGymConfig()`
-* 從 `process.env` 讀取 `GYM_NAME`、`ADMIN_NAME`、`DEFAULT_MEMBERS_PATH`
+- 函式：`getGymConfig()`
+- 從 `process.env` 讀取 `GYM_NAME`、`ADMIN_NAME`、`DEFAULT_MEMBERS_PATH`
 
 ### 【任務五：VIP 會員統計摘要】（綜合題）
 
-* 函式：`getVIPSummary(filePath)`
-* 綜合使用先前撰寫的函式，最終回傳指定格式的會員統計摘要
+- 函式：`getVIPSummary(filePath)`
+- 綜合使用先前撰寫的函式，最終回傳指定格式的會員統計摘要
 
 ---
 
@@ -99,18 +99,19 @@ npm test
 - 完整測試：`npm test`
 
 ### 測試結果說明
+
 ✓ 表示測試通過
 ✕ 表示測試失敗
 
 ### 測試項目（共 8 項）
 
-| 群組 | 測試數量 |
-|---|---|
-| 任務一：readMembers | 1 |
-| 任務二：filterVIP | 2 |
-| 任務三：sumCredits | 2 |
-| 任務四：getGymConfig | 2 |
-| 任務五：getVIPSummary | 1 |
+| 群組                  | 測試數量 |
+| --------------------- | -------- |
+| 任務一：readMembers   | 1        |
+| 任務二：filterVIP     | 2        |
+| 任務三：sumCredits    | 2        |
+| 任務四：getGymConfig  | 2        |
+| 任務五：getVIPSummary | 1        |
 
 ---
 
@@ -130,4 +131,3 @@ A：可先確認 Node.js 版本 `node -v`，至少要 18（建議 20）。如果
 
 **Q：`.env` 的值讀不到？**
 A：這週還沒有教 `dotenv`，所以 `.env` 本機直接執行 `node app.js` 會是讀不到的。目前 Jest 測試會自己使用 `process.env.XXX`，所以 `getGymConfig` 照著規格寫就可以通過囉。
-

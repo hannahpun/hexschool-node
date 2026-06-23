@@ -133,9 +133,7 @@ describe('任務六：createUploadServer', () => {
 
   test('POST /coaches/avatar 上傳檔案成功', async () => {
     const server = createUploadServer(baseConfig);
-    const res = await request(server)
-      .post('/coaches/avatar')
-      .attach('file', SAMPLE_JPG);
+    const res = await request(server).post('/coaches/avatar').attach('file', SAMPLE_JPG);
 
     expect(res.status).toBe(200);
     expect(res.body.filename).toBe('sample.jpg');
@@ -145,13 +143,11 @@ describe('任務六：createUploadServer', () => {
   });
 
   test('POST /coaches/avatar 超過 maxFileSize 回 500', async () => {
-    const smallConfig = { ...baseConfig, maxFileSize: 1024 };  // 1KB
+    const smallConfig = { ...baseConfig, maxFileSize: 1024 }; // 1KB
     const server = createUploadServer(smallConfig);
-    const bigBuffer = Buffer.alloc(2048);  // 2KB > 1KB
+    const bigBuffer = Buffer.alloc(2048); // 2KB > 1KB
 
-    const res = await request(server)
-      .post('/coaches/avatar')
-      .attach('file', bigBuffer, 'big.jpg');
+    const res = await request(server).post('/coaches/avatar').attach('file', bigBuffer, 'big.jpg');
 
     expect(res.status).toBe(500);
     expect(res.body.error).toBeDefined();
@@ -159,9 +155,7 @@ describe('任務六：createUploadServer', () => {
 
   test('POST /coaches/avatar 沒附檔案回 400', async () => {
     const server = createUploadServer(baseConfig);
-    const res = await request(server)
-      .post('/coaches/avatar')
-      .field('dummy', 'value');  // multipart 但沒有 file 欄位
+    const res = await request(server).post('/coaches/avatar').field('dummy', 'value'); // multipart 但沒有 file 欄位
 
     expect(res.status).toBe(400);
     expect(res.body.error).toBe('No file uploaded');

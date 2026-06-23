@@ -1,9 +1,6 @@
 require('dotenv').config();
 
-const {
-  getUploadConfig,
-  createUploadServer,
-} = require('./index');
+const { getUploadConfig, createUploadServer } = require('./index');
 
 const config = getUploadConfig();
 const PORT = Number(process.env.PORT) || 3000;

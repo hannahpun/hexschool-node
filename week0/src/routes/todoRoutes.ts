@@ -1,7 +1,7 @@
-import { Router } from 'express';
 import { validateBody, validateParams } from '@/middlewares/validate.ts';
-import { addTodoSchema, updateTodoSchema, todoIdParamsSchema } from '@/schemas/todoSchema.ts';
+import { addTodoSchema, todoIdParamsSchema, updateTodoSchema } from '@/schemas/todoSchema.ts';
 import { HttpError } from '@/utils/HttpError.ts';
+import { Router } from 'express';
 
 const router = Router();
 type Todo = {

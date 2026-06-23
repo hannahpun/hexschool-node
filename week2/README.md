@@ -74,38 +74,37 @@ npm test
 
 ### 【任務一：讀取上傳設定】
 
-* 函式：`getUploadConfig()`
-* 從 `process.env` 讀取上傳相關設定，有預設值
-* 回傳 `{ uploadDir, maxFileSize, gymName }`
+- 函式：`getUploadConfig()`
+- 從 `process.env` 讀取上傳相關設定，有預設值
+- 回傳 `{ uploadDir, maxFileSize, gymName }`
 
 ### 【任務二：取副檔名】
 
-* 函式：`getFileExtension(filename)`
-* 從檔名取副檔名，一律回小寫帶 .（例：`.jpg`）
-* 沒有副檔名回空字串，多個 . 只取最後一個
+- 函式：`getFileExtension(filename)`
+- 從檔名取副檔名，一律回小寫帶 .（例：`.jpg`）
+- 沒有副檔名回空字串，多個 . 只取最後一個
 
 ### 【任務三：解析檔案 metadata】
 
-* 函式：`parseFileMetadata(file)`
-* `file` 物件是從 formidable 解析
-* 回傳 `{ filename, sizeKB, ext }`
+- 函式：`parseFileMetadata(file)`
+- `file` 物件是從 formidable 解析
+- 回傳 `{ filename, sizeKB, ext }`
 
 ### 【任務四：產出 log 字串】
 
-* 函式：`formatUploadLog(meta, config)`
-* 組出一行上傳紀錄字串
+- 函式：`formatUploadLog(meta, config)`
+- 組出一行上傳紀錄字串
 
 ### 【任務五：路由分派】
 
-* 函式：`router(req, res, config)`
-* 依 method + url 分派請求，處理上傳、錯誤回應與 404
+- 函式：`router(req, res, config)`
+- 依 method + url 分派請求，處理上傳、錯誤回應與 404
 
 ### 【任務六：建立上傳 server】
 
-* 函式：`createUploadServer(config)`
-* 建立 HTTP server，把每個 request 交給 `router`
-* 回傳 server instance（不需 `server.listen()`）
-
+- 函式：`createUploadServer(config)`
+- 建立 HTTP server，把每個 request 交給 `router`
+- 回傳 server instance（不需 `server.listen()`）
 
 ---
 
@@ -144,13 +143,13 @@ npm test
 
 **測試項目（共 14 項）：**
 
-| 群組 | 測試數量 |
-|---|---|
-| 任務一：getUploadConfig | 2 |
-| 任務二：getFileExtension | 4 |
-| 任務三：parseFileMetadata | 2 |
-| 任務四：formatUploadLog | 1 |
-| 任務六：createUploadServer| 5 |
+| 群組                       | 測試數量 |
+| -------------------------- | -------- |
+| 任務一：getUploadConfig    | 2        |
+| 任務二：getFileExtension   | 4        |
+| 任務三：parseFileMetadata  | 2        |
+| 任務四：formatUploadLog    | 1        |
+| 任務六：createUploadServer | 5        |
 
 ---
 
