@@ -32,18 +32,18 @@ src/
 ### Prerequisites
 
 - Node.js (a recent LTS that supports the `tsx` loader)
-- npm
+- pnpm
 
 ### Install
 
 ```bash
-npm install
+pnpm install
 ```
 
 ### Run in development
 
 ```bash
-npm run dev
+pnpm dev
 ```
 
 The server starts on `http://localhost:3000`.
@@ -52,11 +52,11 @@ The server starts on `http://localhost:3000`.
 
 | Script                 | Description                                                         |
 | ---------------------- | ------------------------------------------------------------------- |
-| `npm run dev`          | Start the dev server with `tsx watch` (auto-reload on file changes) |
-| `npm run lint`         | Run ESLint over the project                                         |
-| `npm run lint:fix`     | Run ESLint with `--fix`                                             |
-| `npm run format`       | Format the codebase with Prettier                                   |
-| `npm run format:check` | Check formatting without writing                                    |
+| `pnpm dev`          | Start the dev server with `tsx watch` (auto-reload on file changes) |
+| `pnpm lint`         | Run ESLint over the project                                         |
+| `pnpm lint:fix`     | Run ESLint with `--fix`                                             |
+| `pnpm format`       | Format the codebase with Prettier                                   |
+| `pnpm format:check` | Check formatting without writing                                    |
 
 ## API
 

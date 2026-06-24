@@ -1,7 +1,7 @@
-import express, { type ErrorRequestHandler } from 'express';
-import cors from 'cors';
 import todoRoutes from '@/routes/todoRoutes.ts';
 import { HttpError } from '@/utils/HttpError.ts';
+import cors from 'cors';
+import express, { type ErrorRequestHandler } from 'express';
 
 const app = express();
 app.use(cors());

@@ -13,7 +13,7 @@ Leo 教練剛接手健身房的資料管理，他需要一支小工具：從 JSO
 ### Step 1：環境準備
 
 1. 確認 Node.js 版本 >= 18（建議 20）
-2. 下載作業專案：...，並打開終端機輸入：`npm install`
+2. 下載作業專案：...，並打開終端機輸入：`pnpm install`
 
 ### Step 2：設定環境變數
 
@@ -50,10 +50,10 @@ async function readMembers(filePath) {
 
 ```bash
 # 執行快速測試（看基本輸出）
-npm start
+pnpm start
 
 # 執行完整 Jest 測試（看通過/失敗）
-npm test
+pnpm test
 ```
 
 ---
@@ -95,8 +95,8 @@ npm test
 
 ### 測試指令
 
-- 執行快速測試（看基本輸出）：`npm start`
-- 完整測試：`npm test`
+- 執行快速測試（看基本輸出）：`pnpm start`
+- 完整測試：`pnpm test`
 
 ### 測試結果說明
 
@@ -118,7 +118,7 @@ npm test
 ## 繳交方式
 
 1. 完成 index.js 中的所有函式
-2. 執行 npm test 確保所有測試通過
+2. 執行 pnpm test 確保所有測試通過
 3. 將程式碼上傳至 GitHub
 4. 提交 GitHub 連結
 
@@ -126,8 +126,8 @@ npm test
 
 ## 常見問題
 
-**Q：`npm install` 失敗？**
-A：可先確認 Node.js 版本 `node -v`，至少要 18（建議 20）。如果還是不行，刪掉 `node_modules/` 和 `package-lock.json` 後再重新執行 `npm install`
+**Q：`pnpm install` 失敗？**
+A：可先確認 Node.js 版本 `node -v`，至少要 18（建議 20）。如果還是不行，刪掉 `node_modules/` 和 `pnpm-lock.yaml` 後再重新執行 `pnpm install`
 
 **Q：`.env` 的值讀不到？**
 A：這週還沒有教 `dotenv`，所以 `.env` 本機直接執行 `node app.js` 會是讀不到的。目前 Jest 測試會自己使用 `process.env.XXX`，所以 `getGymConfig` 照著規格寫就可以通過囉。
