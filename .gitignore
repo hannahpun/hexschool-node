@@ -7,3 +7,5 @@ week*/.env
 week*/.env.local
 week*/.env.*.local
 
+week*/*.log
+test/

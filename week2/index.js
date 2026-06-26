@@ -29,7 +29,6 @@ require('dotenv').config();
 function getUploadConfig() {
   return {
     uploadDir: process.env.UPLOAD_DIR || '/tmp',
-    // maxFileSize: (Number(process.env.MAX_FILE_SIZE_MB) || 5) * 1024 * 1024,
     maxFileSize: (Number(process.env.MAX_FILE_SIZE_MB) || 5) * 1024 * 1024,
     gymName: process.env.GYM_NAME || '未命名健身房',
   };
